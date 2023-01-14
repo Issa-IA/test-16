@@ -1,0 +1,40 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="batch_list_view">
+      <field name="name">batch par an list</field>
+      <field name="model">batchsale</field>
+      <field name="arch" type="xml">
+        <tree default_order='batch_number desc'>
+          <field name="batch_number"/>
+          <field name="batch_date"/>
+          <field name="batch_quantity"/>
+          <field name="batch_name"/>
+        </tree>
+      </field>
+    </record>
+
+   <record model="ir.ui.view" id="batch_form_view">
+      <field name="name">batch form</field>
+       <field name="model">batchsale</field>
+        <field name="arch" type="xml">
+         <form>
+          <group>
+          <field name="batch_number"/>
+          <field name="batch_date"/>
+          <field name="batch_quantity"/>
+          <field name="batch_name"/>
+          </group>
+        </form>
+      </field>
+    </record>
+  <record model="ir.actions.act_window" id="stat_batch_window">
+      <field name="name">Batchs</field>
+      <field name="res_model">batchsale</field>
+      <field name="view_mode">tree,form</field>
+  </record>
+  <menuitem name="Batchs" id="affiche_batch_action" parent="sale.sale_menu_root"
+              action="stat_batch_window" sequence="205"/>
+</data>
+</odoo>
